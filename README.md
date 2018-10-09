@@ -106,7 +106,7 @@ There is the possibility to configure the nginx webserver via environment variab
 
 #### Existing variables and environment file
 
-Just have a look [here](https://github.com/4nx/cyberchef/environment.conf) and download the file.
+Just have a look [here](https://github.com/4nx/cyberchef/blob/master/environment.conf) and download the file.
 
 #### Use of an environment file via command line
 
