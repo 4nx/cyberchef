@@ -1,0 +1,9 @@
+ssl_certificate             /etc/ssl/${DOMAIN}/${DOMAIN}-fullchain.pem;
+ssl_certificate_key         /etc/ssl/private/${DOMAIN}/${DOMAIN}.key;
+ssl_dhparam                 /etc/ssl/${DOMAIN}/${DOMAIN}.dhparam;
+ssl_session_cache           ${SSL_SESSION_CACHE:-shared:ssl_cache:5m};
+ssl_session_tickets         ${SSL_SESSION_TICKETS:-off};
+ssl_prefer_server_ciphers   on;
+ssl_protocols               ${SSL_PROTOCOLS:-TLSv1.2};
+ssl_ciphers                 ${SSL_CIPHERS:-ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256};
+ssl_ecdh_curve              ${SSL_ECDH_CURVE:-secp384r1};
