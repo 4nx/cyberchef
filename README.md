@@ -13,7 +13,7 @@ Table of Contents
           * [Running with docker compose](#running-with-docker-compose)
         * [Accessing the console](#accessing-the-console)
         * [Environment variables](#environment-variables)
-          * [Existent variables and environment file](#existing-variables-and-environment-file)
+          * [Existing variables and environment file](#existing-variables-and-environment-file)
           * [Use of an environment file via command line](#use-of-an-evironment-file-via-command-line)
           * [Use of an environment file via docker compose](#use-of-an-evironment-file-via-docker-compose)
       * [Building](#building)
@@ -104,7 +104,7 @@ You can connect to a console of an already running cyberchef container with the 
 
 There is the possibility to configure the nginx webserver via environment variables which can be set directly from the command line, docker compose file or an extra environment file. The recommended way is to use an environment file.
 
-#### Existent variables and environment file
+#### Existing variables and environment file
 
 Just have a look [here](https://github.com/4nx/cyberchef/environment.conf) and download the file.
 
