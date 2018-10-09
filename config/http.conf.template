@@ -1,0 +1,77 @@
+http {
+    include                         /etc/nginx/mime.types;
+    default_type                    application/octet-stream;
+
+    log_format                      main ${LOG_FORMAT:-'\$remote_addr - \$remote_user [\$time_local] \"\$request\" \$status \$body_bytes_sent \"\$http_referer\" \"\$http_user_agent\" \"\$http_x_forwarded_for\"'};
+
+    access_log                      /var/log/nginx/access.log main;
+
+    sendfile                        on;
+    #tcp_nopush                     on;
+
+    keepalive_timeout               65;
+
+    server_tokens                   ${SERVER_TOKENS:-off};
+
+    #gzip                           on;
+
+    server {
+        listen                      ${BIND_ADDRESS4:-0.0.0.0}:80;
+        server_name                 ${SERVER_NAMES};
+        root                        ${ROOT_DIR:-/var/lib/nginx/html};
+
+        # LOGGING
+        access_log                  /var/log/nginx/${DOMAIN}/access.log main;
+        error_log                   /var/log/nginx/${DOMAIN}/error.log;
+
+        # HEADER
+        add_header                  X-Frame-Options '${X_FRAME_OPTIONS:-SAMEORIGIN}';
+        add_header                  X-XSS-Protection '${X_XSS_PROTECTION:-"1;mode=block"}';
+        add_header                  X-Content-Type-Options '${X_CONTENT_TYPE_OPTIONS:-nosniff}';
+        add_header                  Referrer-Policy '${REFERRER_POLICY:-same-origin}';
+
+        location / {
+            try_files               \$uri \$uri/ index.html;
+        }
+    }
+
+    # IF YOU WANT TO USE SSL UNCOMMENT THIS AND CREATE CERTIFICATES
+    #server {
+    #    listen                      ${BIND_ADDRESS4:-0.0.0.0}:443 ssl http2;
+    #    server_name                 ${SERVER_NAMES};
+    #    root                        ${ROOT_DIR:-/var/lib/nginx/html};
+    #
+    #    # LOGGING
+    #    access_log                  /var/log/nginx/${DOMAIN}/access.log main;
+    #    error_log                   /var/log/nginx/${DOMAIN}/error.log;
+    #
+    #    # HEADER
+    #    add_header                  X-Frame-Options '${X_FRAME_OPTIONS:-SAMEORIGIN}';
+    #    add_header                  X-XSS-Protection '${X_XSS_PROTECTION:-"1;mode=block"}';
+    #    add_header                  X-Content-Type-Options '${X_CONTENT_TYPE_OPTIONS:-nosniff}';
+    #    add_header                  Referrer-Policy '${REFERRER_POLICY:-same-origin}';
+    #    add_header                  Expect-CT '${EXPECT_CT:-max-age=0}';
+    #    add_header                  Strict-Transport-Security '${STRICT_TRANSPORT_SECURITY:-max-age=315360000;includeSubdomains;preload}';
+    #
+    #    # SSL
+    #    include                     /etc/nginx/tls.conf;
+    #
+    #    # OCSP
+    #    ssl_stapling                on;
+    #    ssl_stapling_verify         on;
+    #    ssl_trusted_certificate     /etc/ssl/${DOMAIN}/${DOMAIN}-fullchain.pem;
+    #
+    #    # DISABLE HTTP METHODS
+    #    if (\$request_method !~ ^(GET|HEAD|POST)\$) {
+    #        return 444;
+    #    }
+    #
+    #    location / {
+    #        try_files               \$uri \$uri/ index.html;
+    #    }
+    #
+    #    location ^~ /.well-known/acme-challenge/ {
+    #        proxy_pass              http://127.0.0.1:8008;
+    #    }
+    #}
+}
