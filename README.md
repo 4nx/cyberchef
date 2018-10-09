@@ -27,7 +27,14 @@ This repository is for building a Docker container with [GCHQ's CyberChef](https
 
 ## Image Variants
 
+``4nxio/cyberchef:<cyberchef-version>``
+
+**Version**
+
+* [``latest`` Latest cyberchef version](https://github.com/4nx/mosquitto/blob/master/Dockerfile)
+
 **Architecture:**
+
 * ``amd64`` for most desktop computers (e.g. x64, x86-64, x86_64)
 
 **Distribution:**
