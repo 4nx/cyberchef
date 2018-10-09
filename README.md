@@ -23,7 +23,7 @@ Table of Contents
       * [License](#license)
 
 ## Introduction
-This repository is for building a Docker container with [GCHQs CyberChef](https://github.com/gchq/CyberChef)
+This repository is for building a Docker container with [GCHQ's CyberChef](https://github.com/gchq/CyberChef).
 
 ## Image Variants
 
