@@ -15,7 +15,7 @@ Table of Contents
         * [Environment variables](#environment-variables)
           * [Existing variables and environment file](#existing-variables-and-environment-file)
           * [Use of an environment file via command line](#use-of-an-environment-file-via-command-line)
-          * [Use of an environment file via docker compose](#use-of-an-evironment-file-via-docker-compose)
+          * [Use of an environment file via docker compose](#use-of-an-environment-file-via-docker-compose)
       * [Building](#building)
         * [Building via command line](#building-via-command-line)
         * [Building with docker compose](#building-with-docker-compose)
