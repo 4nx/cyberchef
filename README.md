@@ -39,7 +39,7 @@ This repository is for building a Docker container with [GCHQ's CyberChef](https
 
 **Distribution:**
 
-* ``alpine`` for alpine 3.8
+* ``alpine`` for alpine latest
 
 ## Usage
 
