@@ -35,7 +35,7 @@ This repository is for building a Docker container with [GCHQ's CyberChef](https
 
 **Architecture:**
 
-* ``amd64`` for most desktop computers (e.g. x64, x86-64, x86_64)
+* ``amd64`` for most desktop computers (e.g. x86_64)
 
 **Distribution:**
 
